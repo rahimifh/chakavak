@@ -1,4 +1,5 @@
 __pycache__/
 migrations/
+chaakavak bach up/
 *db.sqlite3
-stderr.log/
+*stderr.log
