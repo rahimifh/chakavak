@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}chakavak{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?version=2">
+  </head>
+  <body>
+    <div id="header" style="background-image: url('{% static 'img/textur.jpg' %}')">
+      <div class="headtop">
+        <div class="headleft">
+          <div class="logo">
+
+          </div>
+
+        </div>
+        <div class="headmid">
+          <img src="{%static 'img/chakavak.png' %}" width="200" alt="chakavak logo">
+        </div>
+        <div class="headright">
+
+        </div>
+      </div>
+      <div class="headbottom">
+        <ul>
+          <a href="{% url 'main:home' %}"> <li class="li1" > <h3>خانه</h3> </li></a>
+          <a href="{% url 'blog:news' %}"> <li class="li1"><h3>مقاله ها</h3></li></a>
+          <a href="{% url 'main:prod' %}"> <li class="li1"><h3>محصولات</h3> </li></a>
+          <a href="{% url 'main:agencis' %}"> <li class="li1"><h3>نمایندگی ها</h3> </li></a>
+          <a href="{% url 'main:request_apply' %}"> <li class="li1"><h3>درخواست نمایندگی</h3></li></a>
+          <a href="{% url 'main:about' %}"> <li class="li1"><h3>درباره ما</h3> </li></a>
+        </ul>
+      </div>
+    </div>
+    <div id="middel">
+      {% block content %}
+
+
+      {% endblock %}
+    </div>
+    <div id="footer">
+
+        <div class="footleft">
+          <h3>ارتباط با ما</h3>
+          <ul>
+            <li><a href="{% url 'main:comments' %}"><p>انتقادها و پیشنهاد ها</p> </a> </li>
+            <li><a href="{% url 'main:request_apply' %}"><p>درخواست نمایندگی</p> </a> </li>
+
+          </ul>
+        </div>
+        <div class="footmid">
+          <h3>دفاتر فروش</h3>
+          <ul>
+
+            <li> <p>تهران دارآباد خیابان افتخاری کوچه گلستان پلاک ۴</p></li>
+          </ul>
+        </div>
+        <div class="footright">
+          <h3>تماس با ما</h3>
+          <ul>
+            <li><p>تلفن تماس: ۰۹۹۰۸۱۲۰۸۷۹</li>
+            <li><p>ایمیل:chakavak@chakavak.com</p></li>
+            <li><p>همدان شهرک صنعتی ویان خیابان هفدهم پلاک ۲۰۳</li>
+          </ul>
+        </div>
+    </div>
+  </body>
+</html>

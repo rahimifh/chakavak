@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<center>
+  {% for i in pro %}
+  <div class="proitme">
+      <h3>{{i.name}}</h3>
+    <div class="proitmeflex">
+      <div class="proimg">
+          <img src="{{i.image.url}}" alt="">
+      </div>
+      <div class="probody">
+        <p>{{i.description}}</p>
+        <p>ریال{{i.price}}</p>
+      </div>
+    </div>
+  <br>
+  <hr>
+  <br>
+  </div>
+  {% endfor %}
+  {% for i in posts %}
+    <div class="postsdiv">
+      <div class="postimg">
+        <a href="{{ i.get_absolute_url }}">
+          <img src="{{i.image.url}}" alt="">
+        </a>
+
+      </div>
+      <div class="postbody">
+        <a href="{{ i.get_absolute_url }}">
+          <h4>{{i.title}}</h4>
+          <p>{{i.body|truncatewords_html:20}}</p>
+        </a>
+      </div>
+      <hr>
+    </div>
+  {% endfor %}
+</center>
+
+
+
+
+
+{% endblock %}

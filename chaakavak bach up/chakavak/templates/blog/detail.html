@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+
+
+<img src="{{post.image.url}}" alt="{{post.title}}"> <br>
+  <br>  <a href="{{ post.get_absolute_url }}">
+        {{post.title}}
+      </a>
+  {{post.body}}<br>
+
+{% endblock %}

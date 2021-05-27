@@ -1,0 +1,1 @@
+from chakavak.wsgi import application

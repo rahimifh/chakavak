@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="blogpage">
+
+
+<div class="rightlist">
+  {% for i in posts %}
+
+  <ul>
+    <li> <div class="rightli">
+       <a href="{{ i.get_absolute_url }}"><p>{{i.title}}</p></a></div>
+     </li>
+
+  </ul>
+
+  {% endfor %}
+</div>
+
+<div class="blogcontent">
+  {% for i in posts %}
+  <div class="blogitem">
+    <div class="blogimg">
+      <a href="{{ i.get_absolute_url }}">
+      <img src="{{i.image.url}}" alt="{{i.title}}">
+      </a>
+    </div>
+    <div class="blogtext">
+      <br>  <a href="{{ i.get_absolute_url }}">
+            <h2>{{i.title}}</h2>
+          </a>
+      <p>{{i.body|truncatewords_html:40}}</p><br>
+      <div class="linkdiv">
+        <a href="{{ i.get_absolute_url }}">
+
+
+          </a>
+      </div>
+    </div>
+
+  </div>
+  <hr class="line1">
+
+
+  {% endfor %}
+</div>
+
+
+
+
+
+
+
+
+</div>
+{% endblock %}

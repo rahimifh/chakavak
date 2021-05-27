@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+  <hr>
+<div class="slideshow-container">
+{% for i in slid %}
+<div class="mySlides fade">
+  <div class="numbertext">{{ forloop.counter }}/ 3</div>
+  <img src="{{i.image.url}}" width= '1000px' height="300px" style="width:100%" >
+  <div class="text"></div>
+</div>
+{% endfor %}
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+<hr>
+
+<center>
+  {% for i in pro %}
+  <div class="proitme">
+      <h3>{{i.name}}</h3>
+    <div class="proitmeflex">
+      <div class="proimg">
+          <img src="{{i.image.url}}" alt="">
+      </div>
+      <div class="probody">
+        <p>{{i.description}}</p>
+        <p>ریال{{i.price}}</p>
+      </div>
+    </div>
+  <br>
+  <hr>
+  <br>
+  </div>
+  {% endfor %}
+  <div class="postsdiv">
+    <h2>آخرین مقالات</h2>
+  <table>
+  
+      {% for i in posts %}
+          <tr>
+    
+            <td>   <a href="{{ i.get_absolute_url }}"> <img src="{{i.image.url}}" width="100px" alt=""></a></td>
+            <td>
+              <a href="{{ i.get_absolute_url }}">
+              <h4>{{i.title}}</h4>
+              <p>{{i.body|truncatewords_html:20}}</p>
+              </a>
+            </td>
+    
+          </tr>
+    
+      {% endfor %}
+  
+    </table>
+    </div>
+</center>
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
+{% endblock %}

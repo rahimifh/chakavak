@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<center>
+  <div class="agen">
+    <table>
+      <tr>
+        <th> شهر </th>
+        <th>نام نمایندگی</th>
+        <th> آدرس </th>
+        <th> تلفن </th>
+
+      </tr>
+    {% for i in agency_items %}
+      <tr>
+        <td>{{i.city}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.phone}}</td>
+      </tr>
+    {% endfor %}
+    </table>
+
+  </div>
+
+</center>
+
+
+
+
+
+{% endblock %}
